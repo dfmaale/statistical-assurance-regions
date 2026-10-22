@@ -1,0 +1,7 @@
+method,replications,reproduces_original,coverage_failures,failures_safe_only,failures_with_unsafe_miss,failures_with_false_certificate,containment_failures
+pointwise,500,500,243.0,89.0,154.0,21.0,21
+normal_bonferroni,500,500,31.0,18.0,13.0,1.0,1
+multiplier,500,466,34.0,19.0,15.0,1.0,1
+exact_bonferroni,500,500,20.0,9.0,11.0,1.0,1
+hoeffding,500,500,0.0,0.0,0.0,0.0,0
+holm,500,500,,,,,1

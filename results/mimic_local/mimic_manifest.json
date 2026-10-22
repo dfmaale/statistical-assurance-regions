@@ -2,7 +2,7 @@
   "status": "completed_credentialed_data",
   "dataset_version": "3.1",
   "config_sha256": "a68f68d9a9b33b0522328f931a4bf2aaafa68262e6eee4ab9ead4827e3eca4a2",
-  "seconds": 20.84175790000154,
+  "seconds": 20.554056800028775,
   "source_n": 106864,
   "train_n": 85491,
   "nominal_n": 21373,

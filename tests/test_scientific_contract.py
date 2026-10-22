@@ -133,11 +133,13 @@ class MimicContract(unittest.TestCase):
         self.assertTrue(d.subject_id.is_unique)
 
     def test_explicit_tolerance_required(self):
-        cfg=dict(self.config)
-        cfg["tau"]=None
-        cfg["tau_rationale"]=""
-        with self.assertRaises(ValueError):
-            validate_config(cfg)
+        # The shipped protocol is frozen with tau=.35 for the credentialed run, so the
+        # guard is tested on explicitly unset copies rather than on the shipped file.
+        validate_config(self.config)
+        with self.assertRaises(ValueError): validate_config(dict(self.config,tau=None))
+        with self.assertRaises(ValueError): validate_config(dict(self.config,tau_rationale="  "))
+        incomplete=dict(self.config); incomplete.pop("tau")
+        with self.assertRaises(ValueError): validate_config(incomplete)
 
     def test_end_to_end_synthetic_fixture_not_evidence(self):
         self.fixture()

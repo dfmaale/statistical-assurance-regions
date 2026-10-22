@@ -1,3 +1,13 @@
-method,eligible_environments,certified_environments,tau_fn,required_sensitivity,alpha
-exact_bonferroni,60,3,0.20,0.80,0.05
-holm,60,3,0.20,0.80,0.05
+Model,Missingness,eligible_environments,certified_environments,min_sensitivity,max_sensitivity,max_upper_fn_risk,min_positive_n,certified_fraction
+Always survive,0.0,5,0,0.0,0.0,1.0,1,0.0
+Always survive,0.1,5,0,0.0,0.0,1.0,1,0.0
+Always survive,0.2,5,0,0.0,0.0,1.0,1,0.0
+Always survive,0.3,5,0,0.0,0.0,1.0,1,0.0
+HistGradientBoosting,0.0,5,1,0.0,1.0,1.0,1,0.2
+HistGradientBoosting,0.1,5,1,0.0,1.0,1.0,1,0.2
+HistGradientBoosting,0.2,5,1,0.3571428571428571,1.0,1.0,1,0.2
+HistGradientBoosting,0.3,5,0,0.3571428571428571,1.0,1.0,1,0.0
+Logistic regression,0.0,5,0,0.0,0.8067765567765568,1.0,1,0.0
+Logistic regression,0.1,5,0,0.0,0.8,1.0,1,0.0
+Logistic regression,0.2,5,0,0.3571428571428571,1.0,1.0,1,0.0
+Logistic regression,0.3,5,0,0.3571428571428571,1.0,1.0,1,0.0

@@ -90,12 +90,16 @@ were histogram-gradient-boosting conditions.
 | `results/smoke/` | Execution checks; not manuscript evidence |
 | `figures/full/` | Figures from the current full run |
 | `figures/mimic_local/` | Completed MIMIC-IV assurance-map figures |
+| `results/revision/` | Supplementary analyses from `scripts/run_revision.py` (power study, exact continuous bounds, failure decomposition, tail calculation, profiles, MIMIC-IV effective sample size) with manifest |
+| `figures/revision/` | Figures from the supplementary analyses and the combined pipelines/missingness figure |
 | `manuscript/generated/` | CSV-derived tables, numerical macros and provenance |
 | `docs/REVISION_RESPONSE.md` | Earlier major-revision response and corrective actions |
 | `docs/FINAL_REVIEW_RESPONSE.md` | Response to the second-round minor-revision review |
 | `docs/NOTEBOOK_AUDIT.md` | Original-to-revised notebook consistency map |
 | `docs/VALIDATION_REPORT.md` | What was executed and what remains unverified |
-| `SciGuard_Revised_Manuscript.pdf` | Current 28-page JMLR-format manuscript |
+| `docs/RESULTS_REVISION_NOTES.md` | Notes on the supplementary results revision |
+| `docs/MANUSCRIPT_RESTRUCTURE_CHANGES.md` | Summary of the October 2026 manuscript restructuring |
+| `SciGuard_Revised_Manuscript.pdf` | Current restructured JMLR-format manuscript (main text and references 27--28 pages; appendices follow the references) |
 | `SciGuard_Major_Revision_Response.pdf` | Earlier major-revision response, notebook audit and validation report |
 | `SciGuard_Final_Review_Response.pdf` | Point-by-point response to the second-round review |
 

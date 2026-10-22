@@ -1,4 +1,4 @@
 Model,TargetSourceSensitivity,FrozenThreshold,AchievedSourceSensitivity,SourceSpecificity
-Logistic regression,0.8,0.021706,0.802,0.7471
-HistGradientBoosting,0.8,0.022691,0.802,0.7492
+Logistic regression,0.8,0.02170629412653594,0.8020304568527918,0.7471280804614138
+HistGradientBoosting,0.8,0.02269082004663785,0.8020304568527918,0.7492254158920826
 Always survive,0.8,,0.0,1.0

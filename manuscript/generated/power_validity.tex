@@ -1,0 +1,16 @@
+\begin{tabular}{lrrrrr}
+\toprule
+ & & \multicolumn{2}{c}{Band coverage (min.)} & Containment & UCP \\
+\cmidrule(lr){3-4}
+Method & $K$ & all $n$ & $n=250$ & (min.) & (max.) \\
+\midrule
+Bonferroni exact & 25 & 0.948 & 0.983 & 1.000 & 0.0000 \\
+Bonferroni exact & 100 & 0.948 & 0.975 & 0.998 & 0.0008 \\
+Exact Holm & 25 & -- & -- & 1.000 & 0.0000 \\
+Exact Holm & 100 & -- & -- & 0.998 & 0.0008 \\
+Hoeffding & 25 & 1.000 & 1.000 & 1.000 & 0.0000 \\
+Hoeffding & 100 & 1.000 & 1.000 & 1.000 & 0.0000 \\
+Multiplier & 25 & 0.810 & 0.810 & 0.983 & 0.0096 \\
+Multiplier & 100 & 0.610 & 0.610 & 0.965 & 0.0126 \\
+\bottomrule
+\end{tabular}

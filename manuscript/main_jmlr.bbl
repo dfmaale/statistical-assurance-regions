@@ -1,4 +1,4 @@
-\begin{thebibliography}{18}
+\begin{thebibliography}{27}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -30,6 +30,12 @@ Stephen Bates, Anastasios~N. Angelopoulos, Lihua Lei, Jitendra Malik, and
 \newblock \emph{Journal of the ACM}, 68\penalty0 (6):\penalty0 43:1--43:34,
   2021.
 \newblock \doi{10.1145/3478535}.
+
+\bibitem[Brown et~al.(2001)Brown, Cai, and DasGupta]{brown2001interval}
+Lawrence~D. Brown, T.~Tony Cai, and Anirban DasGupta.
+\newblock Interval estimation for a binomial proportion.
+\newblock \emph{Statistical Science}, 16\penalty0 (2):\penalty0 101--133, 2001.
+\newblock \doi{10.1214/ss/1009213286}.
 
 \bibitem[Chernozhukov et~al.(2013)Chernozhukov, Chetverikov, and
   Kato]{chernozhukov2013gaussian}
@@ -79,6 +85,21 @@ John~C. Duchi and Hongseok Namkoong.
   1378--1406, 2021.
 \newblock \doi{10.1214/20-AOS2004}.
 
+\bibitem[Finlayson et~al.(2021)Finlayson, Subbaswamy, Singh, Bowers, Kupke,
+  Zittrain, Kohane, and Saria]{finlayson2021clinician}
+Samuel~G. Finlayson, Adarsh Subbaswamy, Karandeep Singh, John Bowers, Annabel
+  Kupke, Jonathan Zittrain, Isaac~S. Kohane, and Suchi Saria.
+\newblock The clinician and dataset shift in artificial intelligence.
+\newblock \emph{New England Journal of Medicine}, 385\penalty0 (3):\penalty0
+  283--286, 2021.
+\newblock \doi{10.1056/NEJMc2104626}.
+
+\bibitem[Franc et~al.(2023)Franc, Prusa, and Voracek]{franc2023reject}
+Vojtech Franc, Daniel Prusa, and Vaclav Voracek.
+\newblock Optimal strategies for reject option classifiers.
+\newblock \emph{Journal of Machine Learning Research}, 24\penalty0
+  (11):\penalty0 1--49, 2023.
+
 \bibitem[Garg et~al.(2022)Garg, Balakrishnan, Lipton, Neyshabur, and
   Sedghi]{garg2022ood}
 Saurabh Garg, Sivaraman Balakrishnan, Zachary~C. Lipton, Behnam Neyshabur, and
@@ -86,11 +107,25 @@ Saurabh Garg, Sivaraman Balakrishnan, Zachary~C. Lipton, Behnam Neyshabur, and
 \newblock Leveraging unlabeled data to predict out-of-distribution performance.
 \newblock In \emph{International Conference on Learning Representations}, 2022.
 
+\bibitem[Groenwold(2020)]{groenwold2020informative}
+Rolf H.~H. Groenwold.
+\newblock Informative missingness in electronic health record systems: The
+  curse of knowing.
+\newblock \emph{Diagnostic and Prognostic Research}, 4:\penalty0 8, 2020.
+\newblock \doi{10.1186/s41512-020-00077-0}.
+
+\bibitem[Hall(1992)]{hall1992bootstrap}
+Peter Hall.
+\newblock \emph{The Bootstrap and {E}dgeworth Expansion}.
+\newblock Springer Series in Statistics. Springer, New York, 1992.
+
 \bibitem[Hammar et~al.(2026)Hammar, Alpcan, and Lupu]{hammar2026safe}
-Kim Hammar, Tansu Alpcan, and Emil Lupu.
+Kim Hammar, Tansu Alpcan, and Emil~C. Lupu.
 \newblock Causal online learning of safe regions in cloud radio access
   networks.
-\newblock \emph{arXiv preprint arXiv:2602.05280}, 2026.
+\newblock \emph{IEEE Transactions on Mobile Computing}, 2026.
+\newblock \doi{10.1109/TMC.2026.3725352}.
+\newblock arXiv:2602.05280.
 
 \bibitem[Hoeffding(1963)]{hoeffding1963}
 Wassily Hoeffding.
@@ -120,6 +155,41 @@ Alistair E.~W. Johnson, Lucas Bulgarelli, Lu~Shen, Alvin Gayles, Ayad Shammout,
 \newblock Mimic-iv, a freely accessible electronic health record dataset.
 \newblock \emph{Scientific Data}, 10\penalty0 (1):\penalty0 1, 2023.
 \newblock \doi{10.1038/s41597-022-01899-x}.
+
+\bibitem[Koh et~al.(2021)Koh, Sagawa, Marklund, Xie, Zhang, Balsubramani, Hu,
+  Yasunaga, Phillips, Gao, Lee, David, Stavness, Guo, Earnshaw, Haque, Beery,
+  Leskovec, Kundaje, Pierson, Levine, Finn, and Liang]{koh2021wilds}
+Pang~Wei Koh, Shiori Sagawa, Henrik Marklund, Sang~Michael Xie, Marvin Zhang,
+  Akshay Balsubramani, Weihua Hu, Michihiro Yasunaga, Richard~L. Phillips,
+  Irena Gao, Tony Lee, Etienne David, Ian Stavness, Wei Guo, Bert~A. Earnshaw,
+  Imran Haque, Sara Beery, Jure Leskovec, Anshul Kundaje, Emma Pierson, Sergey
+  Levine, Chelsea Finn, and Percy Liang.
+\newblock Wilds: A benchmark of in-the-wild distribution shifts.
+\newblock In \emph{Proceedings of the 38th International Conference on Machine
+  Learning}, volume 139 of \emph{Proceedings of Machine Learning Research},
+  pages 5637--5664, 2021.
+
+\bibitem[Qui\~nonero Candela et~al.(2009)Qui\~nonero Candela, Sugiyama,
+  Schwaighofer, and Lawrence]{quinonero2008dataset}
+Joaquin Qui\~nonero Candela, Masashi Sugiyama, Anton Schwaighofer, and Neil~D.
+  Lawrence, editors.
+\newblock \emph{Dataset Shift in Machine Learning}.
+\newblock MIT Press, 2009.
+
+\bibitem[Recht et~al.(2019)Recht, Roelofs, Schmidt, and
+  Shankar]{recht2019imagenet}
+Benjamin Recht, Rebecca Roelofs, Ludwig Schmidt, and Vaishaal Shankar.
+\newblock Do {ImageNet} classifiers generalize to {ImageNet}?
+\newblock In \emph{Proceedings of the 36th International Conference on Machine
+  Learning}, volume~97 of \emph{Proceedings of Machine Learning Research},
+  pages 5389--5400, 2019.
+
+\bibitem[Sakaridis et~al.(2021)Sakaridis, Dai, and Van~Gool]{sakaridis2021acdc}
+Christos Sakaridis, Dengxin Dai, and Luc Van~Gool.
+\newblock {ACDC}: The adverse conditions dataset with correspondences for
+  semantic driving scene understanding.
+\newblock In \emph{Proceedings of the IEEE/CVF International Conference on
+  Computer Vision}, pages 10765--10775, 2021.
 
 \bibitem[Tibshirani et~al.(2019)Tibshirani, Barber, Cand\`es, and
   Ramdas]{tibshirani2019weighted}

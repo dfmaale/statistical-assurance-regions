@@ -11,5 +11,5 @@
   "alpha": 0.05,
   "minimum_positive_count_for_eligibility": 2,
   "seed": 20260927,
-  "note": "This reviewer-requested secondary analysis was added after the primary MIMIC analysis. The secondary loss, tolerance, and threshold-calibration rule were fixed before recomputing the class-sensitive deployment certificates. The 80% sensitivity target is an operational analysis requirement and is not claimed to be a clinical standard."
+  "note": "This is a reviewer-requested secondary analysis added after the primary MIMIC analysis. The secondary loss, tolerance, and threshold calibration rule are fixed before recomputing the class-sensitive deployment certificates. The 80% sensitivity target is an operational analysis requirement and is not claimed to be a clinical standard."
 }

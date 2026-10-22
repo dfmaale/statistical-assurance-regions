@@ -1,0 +1,14 @@
+\begin{tabular}{lrrrrr}
+\toprule
+ & & Band & \multicolumn{2}{c}{Failures that missed} & Containment \\
+\cmidrule(lr){4-5}
+Method & Reproduced & failures & only safe & an unsafe & failures \\
+\midrule
+Bonferroni exact & 500/500 & 20 & 9 & 11 & 1 \\
+Exact Holm & 500/500 & -- & -- & -- & 1 \\
+Hoeffding & 500/500 & 0 & 0 & 0 & 0 \\
+Multiplier & 466/500 & 34 & 19 & 15 & 1 \\
+Bonferroni normal & 500/500 & 31 & 18 & 13 & 1 \\
+Pointwise normal & 500/500 & 243 & 89 & 154 & 21 \\
+\bottomrule
+\end{tabular}

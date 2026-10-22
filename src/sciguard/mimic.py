@@ -1,9 +1,8 @@
 """Local credentialed MIMIC-IV protocol; no data download or patient export.
 
 Temporal labels are admission-aligned approximate calendar intervals, never
-unadjusted patient anchor groups. Aggregate benchmark outputs may be exported
-after a valid credentialed-data run; patient-level data and fitted models are
-not exported by this module.
+unadjusted patient anchor groups. This protocol has no claimed benchmark
+results until it is run on actual credentialed tables.
 """
 from pathlib import Path
 import json,hashlib,time,re

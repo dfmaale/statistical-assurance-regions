@@ -1,7 +1,7 @@
 # Canonical notebook consistency audit
 
 Source audited: `SciGuard_JMLR_Reproducible_Analysis_MIMIC_IV.ipynb` from the uploaded ZIP.
-Its original bytes are retained privately by the authors and do not feed the public workflow.
+Its original bytes are retained under `archive/pre_revision/`.
 
 ## Material findings in the original
 

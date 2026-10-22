@@ -1,3 +1,14 @@
+test_minimum_deaths_for_fn_certification (test_revision.EffectiveSampleSize.test_minimum_deaths_for_fn_certification) ... ok
+test_zero_false_negative_bound_for_fourteen_deaths (test_revision.EffectiveSampleSize.test_zero_false_negative_bound_for_fourteen_deaths) ... ok
+test_certification_probability_at_tolerance_is_at_most_level (test_revision.ExactThreshold.test_certification_probability_at_tolerance_is_at_most_level) ... ok
+test_certification_probability_matches_enumeration (test_revision.ExactThreshold.test_certification_probability_matches_enumeration) ... ok
+test_hoeffding_probability_is_about_half_at_width_rule (test_revision.ExactThreshold.test_hoeffding_probability_is_about_half_at_width_rule) ... ok
+test_threshold_matches_brute_force_clopper_pearson (test_revision.ExactThreshold.test_threshold_matches_brute_force_clopper_pearson) ... ok
+test_minimal_assurance_n_is_stable (test_revision.Planning.test_minimal_assurance_n_is_stable) ... ok
+test_planning_returns_nan_when_target_unreachable (test_revision.Planning.test_planning_returns_nan_when_target_unreachable) ... ok
+test_ineligible_conditions_are_never_certified (test_revision.Profiles.test_ineligible_conditions_are_never_certified) ... ok
+test_tolerance_profile_monotone_and_bounded (test_revision.Profiles.test_tolerance_profile_monotone_and_bounded) ... ok
+test_normal_bound_fails_more_often_than_nominal (test_revision.StudentizedTail.test_normal_bound_fails_more_often_than_nominal) ... ok
 test_admission_year_alignment_and_topcoding (test_scientific_contract.MimicContract.test_admission_year_alignment_and_topcoding) ... ok
 test_end_to_end_synthetic_fixture_not_evidence (test_scientific_contract.MimicContract.test_end_to_end_synthetic_fixture_not_evidence) ... ok
 test_explicit_tolerance_required (test_scientific_contract.MimicContract.test_explicit_tolerance_required) ... ok
@@ -18,6 +29,6 @@ test_tau_nesting_and_invalid_loss (test_scientific_contract.StatisticalContract.
 test_unequal_samples_never_truncated (test_scientific_contract.StatisticalContract.test_unequal_samples_never_truncated) ... ok
 
 ----------------------------------------------------------------------
-Ran 18 tests in 1.393s
+Ran 29 tests in 1.566s
 
 OK

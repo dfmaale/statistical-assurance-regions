@@ -1,12 +1,12 @@
-\begin{tabular}{lrrrr}
+\begin{tabular}{llrrrr}
 \toprule
-Method & Coverage [95\% CI] & Containment [95\% CI] & ARR & UCP \\
+Method & Guarantee & Coverage & Containment & ARR & UCP \\
 \midrule
-Pointwise normal & 0.514 [0.470, 0.558] & 0.958 [0.937, 0.972] & 0.522 & 0.0042 \\
-Bonferroni normal & 0.938 [0.913, 0.956] & 0.998 [0.989, 1.000] & 0.282 & 0.0002 \\
-Multiplier & 0.928 [0.902, 0.948] & 0.998 [0.989, 1.000] & 0.297 & 0.0002 \\
-Bonferroni exact & 0.960 [0.939, 0.974] & 0.998 [0.989, 1.000] & 0.258 & 0.0002 \\
-Hoeffding & 1.000 [0.992, 1.000] & 1.000 [0.992, 1.000] & 0.138 & 0.0000 \\
-Exact Holm & -- & 0.998 [0.989, 1.000] & 0.270 & 0.0002 \\
+Bonferroni exact & Finite-sample band & 0.960 [0.939, 0.974] & 0.998 [0.989, 1.000] & 0.258 & 0.0002 \\
+Exact Holm & Finite-sample, fixed $\tau$ & -- & 0.998 [0.989, 1.000] & 0.270 & 0.0002 \\
+Hoeffding & Finite-sample band & 1.000 [0.992, 1.000] & 1.000 [0.992, 1.000] & 0.138 & 0.0000 \\
+Multiplier & Asymptotic band & 0.928 [0.902, 0.948] & 0.998 [0.989, 1.000] & 0.297 & 0.0002 \\
+Bonferroni normal & Asymptotic band & 0.938 [0.913, 0.956] & 0.998 [0.989, 1.000] & 0.282 & 0.0002 \\
+Pointwise normal & None (marginal) & 0.514 [0.470, 0.558] & 0.958 [0.937, 0.972] & 0.522 & 0.0042 \\
 \bottomrule
 \end{tabular}

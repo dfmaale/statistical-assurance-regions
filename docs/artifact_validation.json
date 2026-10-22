@@ -1,30 +1,71 @@
 {
   "status": "passed",
-  "code_cells": 21,
-  "embedded_pngs": 10,
-  "source_files_verified": 11,
-  "result_csvs_verified": 30,
-  "mimic_result_csvs_verified": 5,
+  "notebook": {
+    "file": "SciGuard_JMLR_Reproducible_Analysis_MIMIC_IV_Clean.ipynb",
+    "code_cells": 28,
+    "sections": 14,
+    "results_revision_code_cells_with_outputs": 6,
+    "embedded_pngs": 19,
+    "metadata": {
+      "canonical": true,
+      "execution_backend": "inprocess",
+      "execution_seconds": 250.30455501100002,
+      "execution_status": "completed",
+      "original_notebook": "archive/pre_revision/SciGuard_JMLR_Reproducible_Analysis_MIMIC_IV.ipynb",
+      "results_revision": "2026-10-20",
+      "results_revision_note": "Section 13 cells were executed against the completed revision outputs; earlier cells keep the outputs of the recorded run.",
+      "revision": "2026-09-27"
+    }
+  },
+  "full_run": {
+    "status": "completed_public_and_synthetic",
+    "external_benchmark": "completed_credentialed_data",
+    "source_files_verified": 10,
+    "sources_edited_after_run": {
+      "src/sciguard/mimic.py": "edited for the credentialed MIMIC-IV execution after the archived public/synthetic run; not imported by any archived section"
+    },
+    "result_csvs_verified": 30
+  },
+  "revision_run": {
+    "sections": [
+      "bootstrap_reproduction",
+      "calibration_anatomy",
+      "continuous_exact",
+      "mimic_effective_sample_size",
+      "power_planning",
+      "power_study",
+      "stress_coincidence",
+      "studentized_tail",
+      "tolerance_profiles"
+    ],
+    "python": "3.14.3",
+    "platform": "Linux-6.1.155-x86_64-with-glibc2.43",
+    "result_csvs_verified": 15,
+    "inputs_verified": 40,
+    "sources_verified": 13
+  },
+  "manuscript_inputs": {
+    "generated_files_verified": 19,
+    "mimic_operating_table": false
+  },
   "pdf_pages": {
-    "figures/full/missingness.pdf": 1,
-    "figures/full/sensitivity.pdf": 1,
-    "figures/full/stress.pdf": 1,
-    "figures/full/workflow.pdf": 1,
-    "figures/full/nested.pdf": 1,
     "figures/full/calibration.pdf": 1,
     "figures/full/continuous.pdf": 1,
+    "figures/full/continuous_uncertainty.pdf": 1,
+    "figures/full/missingness.pdf": 1,
+    "figures/full/nested.pdf": 1,
+    "figures/full/sensitivity.pdf": 1,
+    "figures/full/stress.pdf": 1,
     "figures/full/wdbc.pdf": 1,
-    "manuscript/main_jmlr.pdf": 25,
-    "SciGuard_Major_Revision_Response.pdf": 8,
-    "SciGuard_Final_Review_Response.pdf": 3
+    "figures/full/wdbc_upc.pdf": 1,
+    "figures/full/workflow.pdf": 1,
+    "figures/revision/calibration_validity.pdf": 1,
+    "figures/revision/continuous_exact.pdf": 1,
+    "figures/revision/power.pdf": 1,
+    "figures/revision/stress_validity.pdf": 1,
+    "figures/revision/tolerance_profiles.pdf": 1,
+    "manuscript/main_jmlr.pdf": 41
   },
-  "notebook_execution": {
-    "canonical": true,
-    "execution_backend": "inprocess",
-    "execution_seconds": 250.30455501100002,
-    "execution_status": "completed_recorded_outputs",
-    "public_path_sanitized": true,
-    "revision": "2026-10-08"
-  },
+  "latex_log": "no errors, overfull boxes, or undefined references",
   "clinical_data_execution": "completed_credentialed_data"
 }

@@ -1,0 +1,173 @@
+{
+  "schema": 1,
+  "status": "completed",
+  "config": {
+    "profile": "full",
+    "seed": 20260927,
+    "alpha": 0.05,
+    "bootstrap_draws": 2000,
+    "n_assure": 1000,
+    "power_tau": 0.1,
+    "power_rho": 0.55,
+    "power_K": [
+      25,
+      100
+    ],
+    "power_n": [
+      250,
+      500,
+      1000,
+      2000,
+      4000,
+      8000
+    ],
+    "power_delta": [
+      0.01,
+      0.02,
+      0.03,
+      0.05
+    ],
+    "power_reps": 400,
+    "continuous_reps": 200,
+    "planning_K": [
+      25,
+      100,
+      500
+    ],
+    "planning_delta": [
+      0.01,
+      0.02,
+      0.03,
+      0.05
+    ],
+    "planning_targets": [
+      0.8,
+      0.9
+    ]
+  },
+  "started_utc": "2026-10-20T05:24:39.093380+00:00",
+  "python": "3.14.3",
+  "platform": "Linux-6.1.155-x86_64-with-glibc2.43",
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "threadpoolctl": "3.7.0"
+  },
+  "sections": {
+    "power_study": {
+      "status": "completed",
+      "seconds": 208.82530094499953
+    },
+    "power_planning": {
+      "status": "completed",
+      "seconds": 26.23014450500068
+    },
+    "continuous_exact": {
+      "status": "completed",
+      "seconds": 0.21897382299994206
+    },
+    "tolerance_profiles": {
+      "status": "completed",
+      "seconds": 0.06519814599960227
+    },
+    "mimic_effective_sample_size": {
+      "status": "completed",
+      "seconds": 0.3049025009995603
+    },
+    "calibration_anatomy": {
+      "status": "completed",
+      "seconds": 2.2346141640000496
+    },
+    "stress_coincidence": {
+      "status": "completed",
+      "seconds": 1.4400510009995742
+    },
+    "studentized_tail": {
+      "status": "completed",
+      "seconds": 0.01617733600005522
+    },
+    "bootstrap_reproduction": {
+      "status": "completed",
+      "seconds": 0.99402765800005
+    }
+  },
+  "note": "Revision-5 additions. Original full-run outputs in results/full are read, hash-verified, and never rewritten.",
+  "ended_utc": "2026-10-20T05:28:39.455543+00:00",
+  "output_sha256": {
+    "bootstrap_reproduction.csv": "42e0cc8b0233f459c1cb1a30aca1c49837976686b142e01309efd3807e0734c8",
+    "calibration_anatomy_missed_coordinates.csv": "fdce3f6f91eccfddd31e9fbb8ddbcdf046590bd703c64ab7467f1cd050f2513f",
+    "calibration_anatomy_replications.csv": "0b07732f04f94aee87e1d98fbf7f0a77f6971ed2c22b21027d6590663ca1a0ee",
+    "calibration_anatomy_summary.csv": "0b40d8eb4be1cba1d6b2d36e5e62e655ab9bf29ac36eaf365a27e48596f8aa69",
+    "continuous_exact_example.csv": "e5e08e86f6502661f81acac5c9832e4316061af6709b234455b91b393fbf1bdf",
+    "continuous_exact_grid_bounds.csv": "c48be086c240c8c6e7b8022686ae38af074b4e5a4c7815a6709e7a947a1ee1fd",
+    "mimic_deaths_needed.csv": "b684322b1213fd3df76c1249c59f99e49d8a3ebdb018cabc63d111b2c3c2d2e3",
+    "mimic_effective_sample_size.csv": "8707e680ca9cc892ecb2d55ab75f7c11af6bdf27eeb5855c629c666e91b67323",
+    "power_analytic.csv": "d382e61819d1bc1c7d658654b401dfb17cd72424567388a823e93fbc0e3851bd",
+    "power_planning.csv": "dea54661b73be7f8cb6613ee75ba75889f109e3cd224c178482e5edb34069b5d",
+    "power_replications.csv": "dbf60c049e428e330eb2d02cc85bc9a6272b3c822c0e7736c9f56adfd8a06905",
+    "power_summary.csv": "97685827d416244585bdfbf3e49408d48f96623ecdfe7cf66efdff16ea8a6b83",
+    "stress_coincidence.csv": "f518b28c69092dbba9f212da87d327ad77e1c70881c604b97f701dda41916644",
+    "studentized_tail_inflation.csv": "b5d38a6cc6f0f65944361e1218482caa69a9cf3ef0ae57e9cf802e5f845f4b60",
+    "tolerance_profiles.csv": "4d4c1fae513a43e8a52dd779c106480a539bd137c5d9d7b5d4c45f4453343778"
+  },
+  "input_sha256": {
+    "data/simulation_true_risks.csv": "8b242ba9097bce6c005733a56add77adbc4f4f382f168437a30d1f9f2e1e2e5c",
+    "data/wdbc_sklearn.csv": "75a1d74a59df9cb0a78ecc0a36085bf8a85239557f178d3b8d758e88b26416e1",
+    "results/full/atc_prediction_replications.csv": "309686721a42506910c53f444fb94f27e680ee7180bf2a3de9b294340f923ce2",
+    "results/full/atc_prediction_summary.csv": "6efa5866fec59c06e9ab8f0892170d357be33be0aae836664db85529e144562a",
+    "results/full/bootstrap_runtime_replications.csv": "00cb81fe1fd217ac66d28b01bbbff9dc710b8539eaa644c6ceb150e0c1d2905b",
+    "results/full/bootstrap_runtime_summary.csv": "48c3c520e978b8a5ed47d61a56e385155c0af7b38339ee60ced73155021089af",
+    "results/full/calibration_replications.csv": "50741ae317aa3e85e60fa5c83a878a73639332e68fada11fc6c5b88ff53d7365",
+    "results/full/calibration_summary.csv": "b6fc76a00bc90a28ae72e2e623c6090c9dcdb8cc1ecab99939986f27293a7604",
+    "results/full/continuous_L_factor_0.5.csv": "78cf9aff2d179ac5a1d41338a1bc69e0d45560785424939d1cdac38668c86327",
+    "results/full/continuous_L_factor_1.csv": "65f31f655f1cc6fb35cdd105e7ef791e0199f3fea08e836e951484eeb3a2194b",
+    "results/full/continuous_L_factor_2.csv": "63b6cc385159847d5e1f82eeb56155f9de0c2428663e517ffbc196dc9c051e3c",
+    "results/full/continuous_example.csv": "12e153bbc3de18fee092bca3a1b622cde8a3b782e2f654c3823a23e3cf78d143",
+    "results/full/continuous_replications.csv": "6b54cfe0c5b49ad8b90730f84f95294ef6b4299fe10b6e0724d858476b525e59",
+    "results/full/continuous_summary.csv": "f5ff899af62b9d736c21ca354e503fae7cb7eaf9e3af45d05182be81f070dd1e",
+    "results/full/missingness_environment_detail.csv": "5d09f7244dad2b1adce9af16a6d928ec78002661e8a7a082bc19e1179d042c9d",
+    "results/full/missingness_replications.csv": "f3be315f7acc8d9b7f43fffb0ec866daecbeeb2ae5d6d1201228b2d2eb264864",
+    "results/full/missingness_summary.csv": "b832aa1cc6ac8a38e534bafab472f443555caae3e29527a43043968a748029e4",
+    "results/full/nested_fit_replications.csv": "452eb8be4f0cacdcf8b7abcc50d01c9e6b96e7de97579aaeaa820f633295e681",
+    "results/full/nested_fit_summary.csv": "c422514e11763c82937086ef562df91475599595bd7bb4268f3acb9fe6649421",
+    "results/full/nested_reference_risks.csv": "b5b9591a8ed5405a70ff6f3e8d39d2eca1e3b924067d2e88789a612a4ac6ee13",
+    "results/full/nested_replications.csv": "687a1391c826c683ca177970196d97f1a7317b9481533b2126a9516efb9194b3",
+    "results/full/nested_summary.csv": "00b6e5a7dacfc9d107dd1c735bce72a9bccce4bc00ab582f1ea5283e9db3dbb2",
+    "results/full/paired_efficiency_gains.csv": "4c4f5ec816e01204b65588af30fd9d8a71801c9d5983b81be6a57dbc7efe9288",
+    "results/full/pilot_design_replications.csv": "90332a124e5e83549db6e2c2283bebdcf2ddc86d7c7c168d8028c44081144d81",
+    "results/full/pilot_design_summary.csv": "7b81ca06408f2dcc6dfdf8ecbc48591db790c2bbab8a6c92919883f8659d9fe4",
+    "results/full/sample_size_planning.csv": "722e7c1146a9202758cf36ccb63814d7967eeb054a30c05ed195c41cef876c7b",
+    "results/full/sensitivity_replications.csv": "274350c85737f49dd917eab40ca37a6b922acee9b533e88368c3cb2acfcdbcec",
+    "results/full/sensitivity_summary.csv": "a919106e28abffb2135e308042e296c3a7abe6d008c2a8bbd0b6268f78f3850c",
+    "results/full/stress_replications.csv": "7b0678082bc73712a391f9d8882b537007722fd7adc685f836ebb24697d3ae26",
+    "results/full/stress_summary.csv": "5bf64edb07ab0cab71ceb1598d14972063df6bfb52016c98e896793b540838a1",
+    "results/full/wdbc_detail.csv": "6c346f88ee8797980f6815548ed4a62376d6fe008facea1cc4f225bfca637d31",
+    "results/full/wdbc_summary.csv": "1f446ad9fbdbb3130ca0fe2027ffde1d26e2273be51e0b2dc967cd921c6e79db",
+    "results/mimic_local/mimic_class_sensitive_results.csv": "92cba80aedeefd2db4d82753bc023e6c610169d19cd71a419e808b4297225be9",
+    "results/mimic_local/mimic_class_sensitive_summary.csv": "a62a4c06181182773052fee3834e2a236934f96999d7032a787281b000885bea",
+    "results/mimic_local/mimic_class_sensitive_thresholds.csv": "24992af60538c3957ea1f6dcdf6f90ef79d8c423974cb1fbcf1bc41e811be990",
+    "results/mimic_local/mimic_cohort_flow.csv": "c652342d4fae788caecd850adfe8df74d92224524f81a55d7b76c51c32662978",
+    "results/mimic_local/mimic_diagnostics.csv": "2aeb7eb4c0affae30dd049cb02c2dbede9ed615e17ddbe7cfb37242f7e9ae344",
+    "results/mimic_local/mimic_natural_missingness.csv": "3a3f1874cf38b680cdcc2e97f0e0f5c816b190a5daa72f0486c62f35130f8690",
+    "results/mimic_local/mimic_results.csv": "d0bb90db11f50ee4ef6fae4f62c59baf72d6faf28a67c9fc5d0676a550c251c8",
+    "results/mimic_local/mimic_total_missingness.csv": "c48f5a720b9a0022d98cb02a53ee458468bb7c55fdf9947d8c3e4d7a9ad2f61d"
+  },
+  "source_sha256": {
+    "src/sciguard/__init__.py": "161cd91a618483511719c5d59967ce5cb0583bacbbebd8e43a64c12406420d30",
+    "src/sciguard/baselines.py": "d3f235f2e7bdf3c701a90c05c8e37638328614a75a3f087de6ea975b6f71d84e",
+    "src/sciguard/continuous.py": "7a8e53e9c0c246d4808c0c9c6348d4fde3244d7ec7c2063a702455c9404af91b",
+    "src/sciguard/core.py": "72e67d4ea448eaf2f83f8cb6a2a82ad5e9286e2388ec2e5df5d5dcd3cb40017e",
+    "src/sciguard/design.py": "206f8f0f24db0890cfc5e5181421303c6b52a393637ecbe2aa7de60828356514",
+    "src/sciguard/experiments.py": "420f2a1fd2061451e1e6dcc83a4deee8d404796841cf89c6f50f45212633a409",
+    "src/sciguard/groups.py": "f503a7ee55bd89438036f5ca090aa8591d93af13f1ee55c9399bbe0c3c0571fd",
+    "src/sciguard/metrics.py": "794501e0615e80e900a3105e6866d101797f65b873513208b0758c9f5db48a3e",
+    "src/sciguard/mimic.py": "5ead2fb19e37bb4692358886a1ebc6f4328562dd1dfe651f4faecb62ffc17670",
+    "src/sciguard/plotting.py": "3eb3dfedaae350d02d227af97df04f2056ae410a61c03369e3a06bae4d1bb2b7",
+    "src/sciguard/presentation.py": "8f226ddd620dd85b1654aa35cbc8fa8b0568df581d5b777b75e42dcbbd813b4b",
+    "src/sciguard/revision.py": "f3b98bb3b9cb6f26a372dd332134f1ef85fda594210afc78c9da631679fc6361",
+    "src/sciguard/simulation.py": "6a172676716e13a1a18b26f9bdf8297f67f8ddcbf4e82e0b5d0d69fdbe6e6082"
+  }
+}

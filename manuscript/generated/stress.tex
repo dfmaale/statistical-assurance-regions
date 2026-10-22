@@ -2,16 +2,18 @@
 \toprule
 Scenario & Method & Coverage [95\% CI] & Containment & ARR \\
 \midrule
-Continuous bounded & Bonferroni normal & 0.925 [0.880, 0.954] & 1.000 & 0.469 \\
-Continuous bounded & Multiplier & 0.925 [0.880, 0.954] & 1.000 & 0.470 \\
 Continuous bounded & Hoeffding & 1.000 [0.981, 1.000] & 1.000 & 0.008 \\
-Rare binary & Bonferroni normal & 0.780 [0.718, 0.832] & 0.995 & 0.455 \\
-Rare binary & Multiplier & 0.780 [0.718, 0.832] & 0.990 & 0.502 \\
+Continuous bounded & Multiplier & 0.925 [0.880, 0.954] & 1.000 & 0.470 \\
+Continuous bounded & Bonferroni normal & 0.925 [0.880, 0.954] & 1.000 & 0.469 \\
 Rare binary & Bonferroni exact & 0.995 [0.972, 0.999] & 1.000 & 0.379 \\
+Rare binary & Exact Holm & -- & 1.000 & 0.379 \\
 Rare binary & Hoeffding & 1.000 [0.981, 1.000] & 1.000 & 0.000 \\
-Larger binary family & Bonferroni normal & 0.945 [0.904, 0.969] & 0.995 & 0.208 \\
-Larger binary family & Multiplier & 0.910 [0.862, 0.942] & 0.990 & 0.232 \\
+Rare binary & Multiplier & 0.780 [0.718, 0.832] & 0.990 & 0.502 \\
+Rare binary & Bonferroni normal & 0.780 [0.718, 0.832] & 0.995 & 0.455 \\
 Larger binary family & Bonferroni exact & 0.960 [0.923, 0.980] & 0.995 & 0.188 \\
+Larger binary family & Exact Holm & -- & 0.995 & 0.198 \\
 Larger binary family & Hoeffding & 0.995 [0.972, 0.999] & 1.000 & 0.088 \\
+Larger binary family & Multiplier & 0.910 [0.862, 0.942] & 0.990 & 0.232 \\
+Larger binary family & Bonferroni normal & 0.945 [0.904, 0.969] & 0.995 & 0.208 \\
 \bottomrule
 \end{tabular}

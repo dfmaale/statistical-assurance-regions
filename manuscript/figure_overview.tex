@@ -1,10 +1,12 @@
 % ================================================================
-% SciGuard visual overview -- readable two-row manuscript layout
+% Visual overview of the framework -- readable two-row manuscript layout (revision 5:
+% method-neutral notation n, K, e_k, ell, U_k; guarantee stated per route)
 % Add to the preamble:
 %   \usepackage{tikz}
 %   \usetikzlibrary{arrows.meta,positioning,calc}
 %
-% Fit the overview to the manuscript text width to avoid margin overflow.
+% The picture is designed at 16.7 cm and scaled to the 6 in JMLR text width
+% (about 89%), which keeps every label readable without overlap.
 % ================================================================
 
 \definecolor{sgNavy}{HTML}{174A7E}
@@ -22,7 +24,7 @@
 \begin{figure*}[!t]
 	\centering
 	\resizebox{\linewidth}{!}{%
-\begin{tikzpicture}[
+	\begin{tikzpicture}[
 		font=\small,
 		>=Stealth,
 		panel/.style={
@@ -40,7 +42,7 @@
 			rounded corners=1.5mm,
 			line width=.65pt,
 			minimum width=5.25cm,
-			minimum height=5.30cm,
+			minimum height=5.55cm,
 			inner sep=0pt
 		},
 		header/.style={
@@ -71,6 +73,7 @@
 			text=sgGray,
 			font=\footnotesize,
 			align=center,
+			execute at begin node={\hyphenpenalty=10000\exhyphenpenalty=10000},
 			text width=4.55cm
 		},
 		number/.style={
@@ -108,11 +111,11 @@
 		{Training Data and Model};
 		\node[number=sgNavy] at ($(P1)+(2.625cm,.16cm)$) {1};
 		
-		\node[formulaBlue,text width=4.15cm] at ($(P1)+(2.625cm,-1.55cm)$)
-		{$\mathcal D_n=\{(X_i,Y_i)\}_{i=1}^{n}$\\[3pt]
-			$g=\mathcal I\circ f$};
-		\node[explanation] at ($(P1)+(2.625cm,-3.35cm)$)
-		{Fit one prediction pipeline using data from the source population.};
+		\node[formulaBlue,text width=4.45cm] at ($(P1)+(2.625cm,-1.55cm)$)
+		{Training and design data $D_0$\\[3pt]
+        Frozen pipeline $g$};
+        \node[explanation] at ($(P1)+(2.625cm,-3.35cm)$)
+        {$g$ includes preprocessing, imputation, the model, and any decision threshold; it is fixed before assurance.};
 		
 		% ----------------------------------------------------------------
 		% 2. Deployment environments
@@ -122,32 +125,32 @@
 		{Deployment Environments};
 		\node[number=sgNavy] at ($(P2)+(2.625cm,.16cm)$) {2};
 		
-		\node[formulaBlue,text width=4.15cm] at ($(P2)+(2.625cm,-1.48cm)$)
-		{$e=(m,s)\in\mathcal E$};
+		\node[formulaBlue,text width=4.45cm] at ($(P2)+(2.625cm,-1.42cm)$)
+		{$\mathcal E=\{e_1,\ldots,e_K\}$\\[2pt]$e_k=(m_k,s_k)$};
 		\node[align=left,text=sgGray,font=\footnotesize] at
-		($(P2)+(2.625cm,-2.45cm)$)
+		($(P2)+(2.625cm,-2.62cm)$)
 		{$m$: missingness severity\\[3pt]
 			$s$: distribution-shift severity};
-		\node[explanation] at ($(P2)+(2.625cm,-3.65cm)$)
-		{Each point in $\mathcal E$ represents one possible deployment condition.};
+		\node[explanation] at ($(P2)+(2.625cm,-3.72cm)$)
+		{A prespecified finite family; each $e_k$ is one modeled deployment condition.};
 		
 		% ----------------------------------------------------------------
 		% 3. Risk under each environment
 		% ----------------------------------------------------------------
 		\node[panel=sgGreenBorder,anchor=north west] (box3) at (P3) {};
 		\node[header,fill=sgGreen,anchor=north west] at (P3)
-		{Risk Under Each Environment};
+		{Risk in Each Environment};
 		\node[number=sgGreenDark] at ($(P3)+(2.625cm,.16cm)$) {3};
 		
-		\node[formulaGreen,text width=4.25cm] at ($(P3)+(2.625cm,-1.62cm)$)
-		{$R_g(e)=\mathbb E_{P_e}\!\left[
-			L\{Y,g(X_{\mathrm{obs}},M)\}\right]$};
+		\node[formulaGreen,text width=4.45cm,font=\footnotesize] at ($(P3)+(2.625cm,-1.50cm)$)
+		{$R_k=\mathbb E_{P_{e_k}}\!\left[
+            \ell\{Y,g(X_{\mathrm{obs}},M)\}\right]$};
 		\node[align=center,text=sgGray,font=\footnotesize] at
 		($(P3)+(2.625cm,-2.65cm)$)
 		{For classification:\\[2pt]
-			$L(Y,\widehat Y)=\mathbb I(Y\ne\widehat Y)$.};
-		\node[explanation] at ($(P3)+(2.625cm,-3.70cm)$)
-		{Measure how much predictive error occurs under every deployment condition.};
+			$\ell(Y,\widehat Y)=\mathbb I(Y\ne\widehat Y)\in\{0,1\}$.};
+        \node[explanation] at ($(P3)+(2.625cm,-3.70cm)$)
+        {The target is the risk of the frozen pipeline in every environment.};
 		
 		% ----------------------------------------------------------------
 		% 4. Estimated risk and simultaneous uncertainty
@@ -157,19 +160,18 @@
 		{Risk Estimate \& Upper Band};
 		\node[number=sgNavy] at ($(P4)+(2.625cm,.16cm)$) {4};
 		
-		\node[formulaBlue,text width=4.35cm,font=\scriptsize] at
-		($(P4)+(2.625cm,-1.75cm)$)
+		\node[formulaBlue,text width=4.55cm,inner xsep=2mm,font=\scriptsize] at
+		($(P4)+(2.625cm,-1.72cm)$)
 		{$\displaystyle
-			\widehat R_g(e)=\frac{1}{N_e}\sum_{i=1}^{N_e}\ell_{ie}$\\[4pt]
-			$\displaystyle
-			\ell_{ie}=\mathbb I\!\left\{
-			Y_{ie}\ne g(X_{ie,\mathrm{obs}},M_{ie})\right\}$};
-		\node[formulaBlue,text width=4.35cm] at ($(P4)+(2.625cm,-3.45cm)$)
-		{$\displaystyle
-			U_N(e)=\widehat R_g(e)+
-			c_{1-\alpha}\frac{\widehat\sigma(e)}{\sqrt{N_e}}$};
-		\node[explanation] at ($(P4)+(2.6cm,-4.7cm)$)
-		{$c_{1-\alpha}$ comes from the Gaussian multiplier bootstrap, giving simultaneous uncertainty for $\mathcal E$.};
+            \widehat R_k=\frac{1}{n}\sum_{i=1}^{n}L_{ik}$, \ $L_{ik}\in[0,1]$\\[2pt]
+            loss of $g$ on assurance row $i$ in $e_k$};
+        \node[formulaBlue,text width=4.62cm,inner xsep=1.8mm,font=\scriptsize,align=left] at ($(P4)+(2.625cm,-3.72cm)$)
+        {Upper band $U_1,\ldots,U_K$ by route:\\[2pt]
+            exact: Clopper--Pearson at $\alpha/K$\\[1pt]
+            Hoeffding: $\widehat R_k+\sqrt{\log(K/\alpha)/(2n)}$\\[1pt]
+            multiplier: $\widehat R_k+c^*_{1-\alpha}\widehat\sigma_k/\sqrt n$};
+        \node[explanation] at ($(P4)+(2.625cm,-5.06cm)$)
+        {One band covers all $K$ risks jointly.};
 		
 		% ----------------------------------------------------------------
 		% 5. True and certified assurance regions
@@ -179,21 +181,22 @@
 		{Statistical Assurance Regions};
 		\node[number=sgGreenDark] at ($(P5)+(2.625cm,.16cm)$) {5};
 		
-		\node[formulaGreen,text width=4.35cm,font=\footnotesize] at ($(P5)+(2.625cm,-1.40cm)$)
-		{True region:\quad
-			$\mathcal A_\tau(g)=\{e:R_g(e)\le\tau\}$};
-		\node[formulaGreen,text width=4.35cm,font=\footnotesize] at ($(P5)+(2.625cm,-2.43cm)$)
-		{Certified region:\quad
-			$\widehat{\mathcal A}_{\tau,\alpha}(g)=
-			\{e:U_N(e)\le\tau\}$};
+		\node[formulaGreen,text width=4.55cm,inner xsep=2mm,font=\footnotesize] at ($(P5)+(2.625cm,-1.45cm)$)
+		{True region:\\[2pt]
+            $\mathcal A_\tau=\{e_k:R_k\le\tau\}$};
+		\node[formulaGreen,text width=4.55cm,inner xsep=2mm,font=\footnotesize] at ($(P5)+(2.625cm,-2.75cm)$)
+		{Certified region:\\[2pt]
+            $\widehat{\mathcal A}_{\tau,\alpha}=
+            \{e_k:U_k\le\tau\}$};
 		\node[align=center,text=sgGreenDark,font=\footnotesize\bfseries,
-		text width=4.55cm] at ($(P5)+(2.625cm,-3.48cm)$)
+		text width=4.75cm] at ($(P5)+(2.625cm,-4.02cm)$)
 		{$\Pr\!\left\{
-			\widehat{\mathcal A}_{\tau,\alpha}(g)
-			\subseteq\mathcal A_\tau(g)\right\}
-			\ge 1-\alpha+o(1)$};
-		\node[explanation] at ($(P5)+(2.625cm,-4.45cm)$)
-		{Only statistically supported environments are certified.};
+            \widehat{\mathcal A}_{\tau,\alpha}
+            \subseteq\mathcal A_\tau\ \forall\tau\right\}
+            \ge 1-\alpha$\\[1pt]
+            {\mdseries\scriptsize exact and bounded loss; asymptotic for the multiplier}};
+        \node[explanation] at ($(P5)+(2.625cm,-5.14cm)$)
+        {Not certified does not mean unsafe.};
 		
 		% ----------------------------------------------------------------
 		% 6. Two-dimensional assurance map
@@ -237,11 +240,13 @@
 		{Distribution shift $(s)$};
 		
 		\node[font=\scriptsize\bfseries,text=white,align=center]
-		at ($(O)+(.72,.58)$) {Certified\\safe};
-		\node[font=\scriptsize\bfseries,text=sgNavy]
-		at ($(O)+(2.10,1.42)$) {Borderline};
-		\node[font=\scriptsize\bfseries,text=white]
-		at ($(O)+(2.88,2.22)$) {Unsafe};
+		at ($(O)+(.72,.58)$) {Certified};
+		% Labels sit inside their regions: "Borderline" runs along the yellow band,
+		% above the dashed boundary; "Not certified" stays inside the red region.
+		\node[font=\scriptsize\bfseries,text=sgNavy,rotate=-37.6]
+		at ($(O)+(1.85,1.61)$) {Borderline};
+		\node[font=\scriptsize\bfseries,text=white,align=center,inner sep=0pt]
+		at ($(O)+(2.80,2.17)$) {Not\\[-1pt]certified};
 		
 		% ----------------------------------------------------------------
 		% Flow arrows. Numbering communicates the transition between rows, avoiding
@@ -252,14 +257,18 @@
 		\draw[flow] ($(P4)+(5.25cm,-2.22cm)$)--($(P5)+(0cm,-2.22cm)$);
 		\draw[flow] ($(P5)+(5.25cm,-2.22cm)$)--($(P6)+(0cm,-2.22cm)$);
 		
-	\end{tikzpicture}}
+	\end{tikzpicture}%
+	}
 	
-	\caption{SciGuard statistical assurance
-		framework. A predictive pipeline is evaluated over deployment environments
-		indexed by missingness severity $m$ and distribution-shift severity $s$.
-		Environment-specific risks and simultaneous upper confidence bounds are used
-		to construct a conservative certified assurance region. The resulting map
-		is schematic rather than an empirical result and identifies deployment conditions under which the model is statistically
-		supported to satisfy the prespecified risk threshold $\tau$.}
-	\label{fig:sciguard-overview}
+	\caption{Overview of the statistical assurance framework. A frozen pipeline $g$ is
+        evaluated over a prespecified family of $K$ deployment environments indexed by
+        missingness severity $m$ and distribution-shift severity $s$. One simultaneous
+        upper band $(U_1,\ldots,U_K)$, from an exact binomial, bounded-loss, or multiplier
+        route, defines the certified inner region $\widehat{\mathcal A}_{\tau,\alpha}$. The
+        exact and bounded-loss routes give containment for all $\tau$ with probability at
+        least $1-\alpha$ in finite samples; the multiplier route gives it asymptotically. In
+        the stylized map, green cells are certified, yellow cells have estimated risk at most
+        $\tau$ but are not certified, and red cells are not certified; neither uncertified
+        category is a proof that the environment is unsafe.}
+	\label{fig:overview}
 \end{figure*}

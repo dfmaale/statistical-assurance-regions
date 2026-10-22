@@ -39,3 +39,7 @@ clinical protocol; they do not supply SciGuard experiment results.
   the anchor year; age 91 is a top code. Version and data coverage must be checked locally.
   The protocol's extra one-year padding is an analysis choice, not an exact-date claim
   from the documentation. This source is not evidence that the benchmark has been run.
+
+The original bibliography is preserved, with verified additions. Only cited entries enter
+the revised PDF. Existing authorship and affiliation information was retained from the
+supplied manuscript; those administrative details were not independently reverified.
