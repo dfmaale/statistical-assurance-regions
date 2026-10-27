@@ -10,7 +10,7 @@ authors:
 version: 1.0.1
 date-released: 2026-10-08
 license: MIT
-repository-code: "https://github.com/dfmaale/sciguard-sar"
+repository-code: "https://github.com/dfmaale/statistical-assurance-regions"
 doi: 10.5281/zenodo.23241355
 url: "https://doi.org/10.5281/zenodo.23241355"
 keywords:

@@ -17,8 +17,8 @@ regimes. MIMIC-IV v3.1 has now been executed on credentialed local data; only ag
 ## Install and run
 
 ```bash
-git clone https://github.com/dfmaale/sciguard-sar.git
-cd sciguard-sar
+git clone https://github.com/dfmaale/statistical-assurance-regions.git
+cd statistical-assurance-regions
 python -m pip install -e ".[experiments,notebook]"
 python -m unittest discover -s tests -v
 python scripts/run_analysis.py --profile smoke
