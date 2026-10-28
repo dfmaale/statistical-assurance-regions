@@ -245,8 +245,8 @@ With $n_g=\sum_iG_{ig}$ and $\widehat p_g=n_g/n$, define
 Common row multipliers applied to these influence estimates preserve both overlapping-group
 and within-subject dependence. Fixed-dimensional asymptotic ratio inference additionally
 requires positive group probabilities and nondegenerate influence variances. Small or empty
-groups remain in the report and cannot be certified under a prespecified minimum-size rule.
-For exact binomial inference, we condition on the group membership indicators: under i.i.d.
+groups remain in the report and cannot be certified under a prespecified minimum-size rule,
+which preserves the union-bound validity of the band. For exact binomial inference, we condition on the group membership indicators: under i.i.d.
 master rows and a fixed group definition, the binary losses selected by a group have the
 group-conditional Bernoulli law, and a union bound covers all groups and stress conditions
 despite overlap. When environments instead have genuinely independent samples of unequal
@@ -329,6 +329,20 @@ Let $c^*_{1-\alpha}$ be its conditional $(1-\alpha)$ quantile. The upper band is
 U_k^{\mathrm M}=\min\{1,\widehat R_k+c^*_{1-\alpha}\widehat\sigma_k/\sqrt n\}.
 \label{eq:multupper}
 \end{equation}
+For the grouped setting of \eqref{eq:group}, the loss vector $(L_{ik})$ is replaced by the
+influence estimates $\widehat\psi_{i,g,j}$, and the standard error is then computed as
+\begin{equation}
+\frac{\widehat\sigma_{\psi,k}}{\sqrt n}=
+\sqrt{\frac{1}{n^2}\sum_{i=1}^n\widehat\psi_{i,g,j}^2}=
+\frac{\widehat\sigma_{g,j,\mathrm{group}}}{\sqrt{n_g}},
+\qquad \widehat\sigma_{\psi,k}^2=n^{-1}\sum_{i=1}^n\widehat\psi_{i,g,j}^2.
+\label{eq:groupse}
+\end{equation}
+Using the within-group standard deviation together with the master sample size $n$ in place
+of \eqref{eq:groupse} understates the subgroup rate by a factor of $\sqrt{\widehat p_g}$ and
+widens the band in small domains; the grouped rule in \eqref{eq:groupse} is the one to apply.
+Eligible groups below the minimum-size rule receive the trivial bound $U_k=1$ rather than a
+nonconstant band, so that small-sample non-normality cannot distort $c^*_{1-\alpha}$.
 The implementation enlarges negative simulated critical values to zero and assigns the bound
 1 to empirically constant columns. This avoids invalid studentization but does not correct
 approximation error for rare events.
@@ -433,7 +447,9 @@ s^*=\max\bigl\{s:\Pp\{\mathrm{Bin}(n,\tau)\leq s\}\leq\alpha/K\bigr\}.
 \label{eq:pcert}
 \end{equation}
 The Hoeffding analogue replaces $s^*$ by $\lfloor n\{\tau-\sqrt{\log(K/\alpha)/(2n)}\}\rfloor$.
-The assurance sample can therefore be planned for a target certification probability at a
+When the sample is too small to certify even zero errors, the set in \eqref{eq:pcert} is
+empty, and we set $s^*=-1$ so that $P_{\mathrm{cert}}(n,R)=0$ for every $R$; this happens
+whenever $(1-\tau)^n>\alpha/K$. The assurance sample can therefore be planned for a target certification probability at a
 stated margin $\tau-R$. Because $s^*$ is an integer, $P_{\mathrm{cert}}$ is not monotone in
 $n$, so we report the smallest $n$ beyond which a target probability is maintained.
 
@@ -519,13 +535,16 @@ calibration and \RareExactCoverage{} in the rare-binary design, and Hoeffding co
 least 0.995 of the replications of every design. The Gaussian bands did not. Pointwise normal
 intervals attained only \CalPointCoverage{} simultaneous coverage, and the multiplier band
 covered \CalMultCoverage{} in the primary calibration, \RareMultCoverage{} in the rare-binary
-design, and \LargeMultCoverage{} in the $K=125$ design. Its mean ARR in the primary
+design, and \LargeMultCoverage{} in the $K=125$ design. The multiplier's mean ARR in the primary
 calibration was \MainMultARR, compared with \MainExactARR{} for exact Bonferroni and
 \CalHolmARR{} for exact Holm, which retains a finite-sample guarantee at the fixed tolerance.
 The efficiency gain of the multiplier therefore accompanies a loss of finite-sample validity.
 Refusing to certify zero-variance columns does not prevent its failure in low-count,
 nonconstant columns. Hoeffding was very conservative, certifying almost nothing in the
-bounded-continuous and rare-binary designs. Selecting whichever unadjusted bound yields the
+bounded-continuous and rare-binary designs. Variance-adaptive finite-sample inequalities such
+as empirical Bernstein or Hoeffding--Bentkus bounds can narrow this gap without abandoning
+the union-bound argument, and they are the appropriate next comparator when the losses are
+bounded but not binary \citep{bates2021rcps,angelopoulos2025ltt}. Selecting whichever unadjusted bound yields the
 most certifications after seeing the assurance losses is not a valid remedy.
 
 \begin{figure}[t]
@@ -545,7 +564,11 @@ from the archived seeds (Appendix~\ref{app:verification}), \AnatExactSafeOnly{} 
 \AnatExactFailures{} exact-Bonferroni coverage failures missed only acceptable environments,
 and only \AnatExactFalseCert{} produced a false certification at $\tau=.34$; for the multiplier,
 \AnatMultSafeOnly{} of \AnatMultFailures{} failures missed only acceptable environments and
-\AnatMultFalseCert{} produced a false certification (Table~\ref{tab:anatomy}). When an
+\AnatMultFalseCert{} produced a false certification (Table~\ref{tab:anatomy}). These
+regenerated counts give a coverage of \AnatMultCoverageRerun{} and \AnatExactFailures{}
+failures for the multiplier, which differs slightly from the archived \CalMultCoverage{} of
+Table~\ref{tab:cal} because eigendecomposition varies across computing environments; the
+scientific conclusion is unchanged. When an
 unacceptable environment was missed, its upper bound usually remained between $\tau$ and its
 true risk. Containment at one tolerance therefore says little about the validity of a band.
 
@@ -1020,7 +1043,12 @@ target, that means deaths per domain rather than admissions. Grid size is a furt
 constraint. The direct multiplier implementation costs $O(BnK)$ operations, and the
 conditional-covariance alternative costs $O(nK^2+K^3+BK^2)$ with $O(K^2)$ storage
 (Appendix~\ref{app:runtime}), which reinforces the recommendation to keep stress axes focused
-or to screen a larger family with an independent pilot.
+or to screen a larger family with an independent pilot. When a fixed tolerance is the only
+deliverable, an ordered stress grid can also support a structured fixed-sequence or graphical
+familywise-error procedure, which exploits monotone degradation along the stress axes and can
+recover certification power lost to the $K$-fold union-bound penalty
+\citep{angelopoulos2025ltt}; such a procedure is not interchangeable with a full band, and we
+leave it as a further comparator rather than a recommendation.
 
 Selection and reuse also need care. A fixed band supports all tolerances simultaneously,
 including one inspected afterward, but this does not justify defining an operational

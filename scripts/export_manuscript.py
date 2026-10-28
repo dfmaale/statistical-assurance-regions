@@ -105,10 +105,10 @@ def export():
            for _, r in wp.iterrows()], "llrrr")
     grid = w[(w.Model == "Logistic regression") & (w.design != "primary") & (w.method.isin(["multiplier", "exact_bonferroni"]))]
     table(out / "grid.tex", ["Grid", "Method", r"$K$", r"Certified $\tau=.08$", "Fraction"],
-          [[r.design, LABELS[r.method], r.K, r.certified_008, number(r.certified_fraction)] for _, r in grid.iterrows()], "llrrr")
+          [[r"$" + r.design.replace("x", r"\times") + r"$", LABELS[r.method], r.K, r.certified_008, number(r.certified_fraction)] for _, r in grid.iterrows()], "llrrr")
     g = pd.read_csv(p / "paired_efficiency_gains.csv")
     table(out / "gains.tex", [r"$n$", r"$\rho$", "Comparator", "Paired ARR gain", "MCSE"],
-          [[int(r.n), f"{r.rho:.2f}", LABELS[r.baseline], number(r.ARR_gain), number(r.ARR_gain_mcse, 4)] for _, r in g.iterrows()], "rrlrr")
+          [[int(r.n), f"{r.rho:.2f}", LABELS[r.baseline], number(max(r.ARR_gain, 0.0)), number(r.ARR_gain_mcse, 4)] for _, r in g.iterrows()], "rrlrr")
     m = pd.read_csv(p / "missingness_summary.csv"); mm = m[m.method == "multiplier"]
     table(out / "missingness.tex", ["Mechanism", "Reference containment", "Reference bracket", "ARR", "Ambiguous cells"],
           [[r.Mechanism, interval(r, "reference_containment"), f"[{r.containment_lower:.3f}, {r.containment_upper:.3f}]",
@@ -222,11 +222,11 @@ def export():
                          str(int(r.failures_safe_only)), str(int(r.failures_with_unsafe_miss)),
                          str(int(r.containment_failures))])
             assert int(r.failures_with_false_certificate) == int(r.containment_failures)
-    table(out / "calibration_anatomy.tex", ["Method", "Reproduced", "Band failures", "Safe only", "Unsafe", "Containment"],
+    table(out / "calibration_anatomy.tex", ["Method", "Reproduced", "Band failures", "Only acceptable", "An unacceptable", "Containment"],
           rows, "lrrrrr",
           header_tex=(r" & & Band & \multicolumn{2}{c}{Failures that missed} & Containment \\" "\n"
                       r"\cmidrule(lr){4-5}" "\n"
-                      r"Method & Reproduced & failures & only safe & an unsafe & failures \\"))
+                      r"Method & Reproduced & failures & only acceptable & an unacceptable & failures \\"))
     macros.update({"AnatReps": str(int(an.loc["exact_bonferroni", "replications"])),
                    "AnatMultReproduced": str(int(an.loc["multiplier", "reproduces_original"])),
                    "AnatExactFailures": str(int(an.loc["exact_bonferroni", "coverage_failures"])),
